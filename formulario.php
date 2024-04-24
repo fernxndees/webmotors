@@ -1,4 +1,23 @@
+<?php
+    if(isset($_POST['submit']))
+    {
+       // print_r('Nome: ' . $_POST['nome']);
+       // print_r('<br>');
+        //print_r('Email: ' . $_POST['email']);
+        //print_r('<br>');
+        //print_r('Senha: ' . $_POST['senha']);
 
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $email =$_POST['email'];
+        $senha = $_POST['senha'];
+
+    $reultado = mysqli_query($conexao, "INSERT INTO cadastros(nome,email,senha) VALUES('$nome', '$email', '$senha')");
+        
+    }
+
+?>
 
 
 <!DOCTYPE html>
@@ -80,12 +99,12 @@
 </head>
 <body>
     <div class="box">
-        <form action=# method="post">
+        <form action="formulario.php" method="post">
             <fieldset>
             <legend><b>Cadastre-se</b></legend>
             <br>
             <div class="inputBox">
-                <input type="text" name="Nome" id="nome" class="inputUser" required>
+                <input type="text" name="nome" id="nome" class="inputUser" required>
                 <label for="nome" class="labelInput">Nome completo</label>
                 <br><br>
             </div>
@@ -95,7 +114,7 @@
                 <br><br>
             </div>
             <div class="inputBox">
-                <input type="password" name="Senha" id="senha" class="inputUser" required>
+                <input type="password" name="senha" id="senha" class="inputUser" required>
                 <label for="password" class="labelInput">Senha</label>
                 <br><br>
               <input type="submit" name="submit" id="submit">
